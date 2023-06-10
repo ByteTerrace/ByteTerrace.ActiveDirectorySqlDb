@@ -16,5 +16,5 @@ as return (
         select 1 as [Result] -- allow database owners to view all sessions
         where (Convert(bit, 1) = is_member('db_owner'))
     ) as a
-    where (Convert(bit, 0) = is_member('db_denydatareader')) -- ensure that user isn't blocked from viewing session data
+    where (Convert(bit, 0) = is_member('db_denydatareader')) -- ensure that user isn't blocked from viewing all data
 );
