@@ -1,5 +1,5 @@
 ﻿create procedure [rls].[usp_SessionSignIn] (
-    @objectId varchar(36)
+    @objectId uniqueidentifier
 )
 as
 begin;
