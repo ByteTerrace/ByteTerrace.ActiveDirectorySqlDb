@@ -1,9 +1,9 @@
 ﻿create procedure [rls].[usp_AddPermission] (
-    @majorId int not null
-  , @minorId int null
-  , @name sysname not null
-  , @state char(1) not null
-  , @userId int not null
+    @majorId int
+  , @minorId int
+  , @name sysname
+  , @state char(1)
+  , @userId int
 )
 as
 begin;

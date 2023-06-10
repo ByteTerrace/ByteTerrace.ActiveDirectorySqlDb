@@ -1,7 +1,7 @@
 ﻿create procedure [rls].[usp_GrantSelectPermission] (
-    @majorId int not null
-  , @minorId int null
-  , @userId int not null
+    @majorId int
+  , @minorId int
+  , @userId int
 )
 as
 begin;

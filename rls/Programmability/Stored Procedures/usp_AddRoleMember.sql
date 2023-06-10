@@ -1,6 +1,6 @@
 ﻿create procedure [rls].[usp_AddRoleMember] (
-    @roleName sysname not null
-  , @userId int not null
+    @roleName sysname
+  , @userId int
 )
 as
 begin;
