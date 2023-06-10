@@ -1,6 +1,6 @@
 ﻿create table [rls].[Permissions] (
     [MajorId] int not null
-  , [MinorId] int not null
+  , [MinorId] int not null constraint [rls.Permissions_DfMinorId] default (0)
   , [Name] sysname not null
   , [State] char(1) not null
   , [UserId] int not null

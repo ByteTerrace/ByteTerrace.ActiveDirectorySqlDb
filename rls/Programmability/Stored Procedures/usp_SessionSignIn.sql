@@ -1,5 +1,5 @@
 ﻿create procedure [rls].[usp_SessionSignIn] (
-    @objectId uniqueidentifier
+    @objectId uniqueidentifier not null
 )
 as
 begin;

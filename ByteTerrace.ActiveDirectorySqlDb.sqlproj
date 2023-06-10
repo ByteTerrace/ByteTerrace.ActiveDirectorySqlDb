@@ -1,103 +1,117 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>ByteTerrace.ActiveDirectorySqlDb</Name>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{350fff66-02d5-4f5a-a9b9-88e4cca7c5a0}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
-    <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
-    <RootNamespace>ByteTerrace.ActiveDirectorySqlDb</RootNamespace>
-    <AssemblyName>ByteTerrace.ActiveDirectorySqlDb</AssemblyName>
-    <ModelCollation>1033,CS</ModelCollation>
-    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
-    <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <TargetLanguage>CS</TargetLanguage>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <SqlServerVerification>False</SqlServerVerification>
-    <IncludeCompositeObjects>True</IncludeCompositeObjects>
-    <TargetDatabaseSet>True</TargetDatabaseSet>
-    <IsEncryptionOn>True</IsEncryptionOn>
-    <CompatibilityMode>160</CompatibilityMode>
-    <EnableFullTextSearch>False</EnableFullTextSearch>
-    <DbScopedConfigOptimizerHotfixes>On</DbScopedConfigOptimizerHotfixes>
-    <QueryStoreDesiredState>ReadWrite</QueryStoreDesiredState>
-    <QueryStoreStaleQueryThreshold>30</QueryStoreStaleQueryThreshold>
-    <DefaultCollation>Latin1_General_100_BIN2</DefaultCollation>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>bin\Release\</OutputPath>
-    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <DefineDebug>false</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
-    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
-    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
-    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
-  </PropertyGroup>
-  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
-  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
-  <ItemGroup>
-    <Folder Include="Properties" />
-    <Folder Include="rls" />
-    <Folder Include="rls\Tables" />
-    <Folder Include="Security" />
-    <Folder Include="Security\schemas" />
-    <Folder Include="rls\Programmability" />
-    <Folder Include="rls\Programmability\Functions" />
-    <Folder Include="rls\Programmability\Functions\Table-valued Functions" />
-    <Folder Include="rls\Security" />
-    <Folder Include="rls\Programmability\Stored Procedures" />
-    <Folder Include="rls\Programmability\Sequences" />
-    <Folder Include="_PublishProfiles\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="Security\schemas\rls.sql" />
-    <Build Include="rls\Tables\Sessions.sql" />
-    <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateSessionsAccess.sql" />
-    <Build Include="rls\Security\EnforceSessionsAccess.sql" />
-    <Build Include="rls\Programmability\Stored Procedures\usp_SessionSignIn.sql" />
-    <Build Include="rls\Tables\Users.sql" />
-    <Build Include="rls\Programmability\Sequences\UserId.sql" />
-    <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateUsersAccess.sql" />
-    <Build Include="rls\Security\EnforceUsersAccess.sql" />
-    <Build Include="rls\Tables\RoleAssignments.sql" />
-    <Build Include="rls\Programmability\Stored Procedures\usp_AddRoleMember.sql" />
-    <Build Include="rls\Programmability\Stored Procedures\usp_RemoveRoleMember.sql" />
-    <Build Include="rls\Tables\Permissions.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">
-      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac</HintPath>
-      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
-      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
-    </ArtifactReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="_PublishProfiles\main.publish.xml" />
-  </ItemGroup>
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <Name>ByteTerrace.ActiveDirectorySqlDb</Name>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectVersion>4.1</ProjectVersion>
+        <ProjectGuid>{350fff66-02d5-4f5a-a9b9-88e4cca7c5a0}</ProjectGuid>
+        <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+        <OutputType>Database</OutputType>
+        <RootPath>
+        </RootPath>
+        <AssemblyName>ByteTerrace.ActiveDirectorySqlDb</AssemblyName>
+        <ModelCollation>1033,CS</ModelCollation>
+        <RootNamespace>ByteTerrace.ActiveDirectorySqlDb</RootNamespace>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <TargetLanguage>CS</TargetLanguage>
+        <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <CompatibilityMode>160</CompatibilityMode>
+        <DbScopedConfigOptimizerHotfixes>On</DbScopedConfigOptimizerHotfixes>
+        <DefaultCollation>Latin1_General_100_BIN2</DefaultCollation>
+        <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+        <DeployToDatabase>True</DeployToDatabase>
+        <EnableFullTextSearch>False</EnableFullTextSearch>
+        <IncludeCompositeObjects>True</IncludeCompositeObjects>
+        <IsEncryptionOn>True</IsEncryptionOn>
+        <MemoryOptimizedElevateToSnapshot>True</MemoryOptimizedElevateToSnapshot>
+        <PageVerify>CHECKSUM</PageVerify>
+        <QueryStoreDesiredState>ReadWrite</QueryStoreDesiredState>
+        <QueryStoreStaleQueryThreshold>30</QueryStoreStaleQueryThreshold>
+        <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+        <SqlServerVerification>False</SqlServerVerification>
+        <TargetDatabaseSet>True</TargetDatabaseSet>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <OutputPath>bin\Release\</OutputPath>
+        <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+        <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <DefineDebug>false</DefineDebug>
+        <DefineTrace>true</DefineTrace>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <OutputPath>bin\Debug\</OutputPath>
+        <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+        <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <DefineDebug>true</DefineDebug>
+        <DefineTrace>true</DefineTrace>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+        <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+        <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+        <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+    </PropertyGroup>
+    <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+    <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+    <ItemGroup>
+        <Folder Include="Properties" />
+        <Folder Include="rls" />
+        <Folder Include="rls\Tables" />
+        <Folder Include="Security" />
+        <Folder Include="Security\schemas" />
+        <Folder Include="rls\Programmability" />
+        <Folder Include="rls\Programmability\Functions" />
+        <Folder Include="rls\Programmability\Functions\Table-valued Functions" />
+        <Folder Include="rls\Security" />
+        <Folder Include="rls\Programmability\Stored Procedures" />
+        <Folder Include="rls\Programmability\Sequences" />
+        <Folder Include="_PublishProfiles\" />
+        <Folder Include="dbo" />
+        <Folder Include="dbo\Tables" />
+        <Folder Include="rls\Security\Security Policies" />
+        <Folder Include="dbo\Security" />
+        <Folder Include="dbo\Security\Security Policies" />
+    </ItemGroup>
+    <ItemGroup>
+        <Build Include="Security\schemas\rls.sql" />
+        <Build Include="rls\Tables\Sessions.sql" />
+        <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateSessionsAccess.sql" />
+        <Build Include="rls\Programmability\Stored Procedures\usp_SessionSignIn.sql" />
+        <Build Include="rls\Tables\Users.sql" />
+        <Build Include="rls\Programmability\Sequences\UserId.sql" />
+        <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateUsersAccess.sql" />
+        <Build Include="rls\Tables\RoleAssignments.sql" />
+        <Build Include="rls\Programmability\Stored Procedures\usp_AddRoleMember.sql" />
+        <Build Include="rls\Programmability\Stored Procedures\usp_RemoveRoleMember.sql" />
+        <Build Include="rls\Tables\Permissions.sql" />
+        <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateObjectAccess.sql" />
+        <Build Include="dbo\Tables\Sandbox.sql" />
+        <Build Include="rls\Security\Security Policies\EnforceSessionsAccess.sql" />
+        <Build Include="rls\Security\Security Policies\EnforceUsersAccess.sql" />
+        <Build Include="dbo\Security\Security Policies\EnforceSandboxAccess.sql" />
+        <Build Include="rls\Programmability\Stored Procedures\usp_AddPermission.sql" />
+        <Build Include="rls\Programmability\Stored Procedures\usp_GrantSelectPermission.sql" />
+    </ItemGroup>
+    <ItemGroup>
+        <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">
+            <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac</HintPath>
+            <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+            <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+        </ArtifactReference>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="_PublishProfiles\main.publish.xml" />
+    </ItemGroup>
 </Project>
