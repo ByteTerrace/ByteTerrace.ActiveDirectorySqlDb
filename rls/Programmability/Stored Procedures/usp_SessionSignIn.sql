@@ -22,8 +22,12 @@ begin;
     insert into [rls].[Sessions] ([ObjectId])
     select @objectId;
 
-    insert into [rls].[Users] ([ObjectId])
-    select @objectId
+    insert into [rls].[Users] (
+        [Id]
+      , [ObjectId]
+    )
+    select next value for [rls].[UserId]
+         , @objectId
     where not exists (
               select 1
               from [rls].[Users] as nea

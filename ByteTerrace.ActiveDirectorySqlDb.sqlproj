@@ -13,7 +13,7 @@
     </RootPath>
     <RootNamespace>ByteTerrace.ActiveDirectorySqlDb</RootNamespace>
     <AssemblyName>ByteTerrace.ActiveDirectorySqlDb</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CS</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -28,6 +28,7 @@
     <DbScopedConfigOptimizerHotfixes>On</DbScopedConfigOptimizerHotfixes>
     <QueryStoreDesiredState>ReadWrite</QueryStoreDesiredState>
     <QueryStoreStaleQueryThreshold>30</QueryStoreStaleQueryThreshold>
+    <DefaultCollation>Latin1_General_100_BIN2_UTF8</DefaultCollation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -72,6 +73,7 @@
     <Folder Include="rls\Security" />
     <Folder Include="rls\Programmability\Stored Procedures" />
     <Folder Include="rls\Programmability\Sequences" />
+    <Folder Include="_PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\schemas\rls.sql" />
@@ -91,5 +93,8 @@
       <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
       <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
     </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_PublishProfiles\main.publish.xml" />
   </ItemGroup>
 </Project>
