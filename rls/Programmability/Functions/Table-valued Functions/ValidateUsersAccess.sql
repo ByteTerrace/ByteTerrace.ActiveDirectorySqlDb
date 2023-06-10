@@ -1,5 +1,5 @@
 ﻿create function [rls].[ValidateUsersAccess] (
-    @id uniqueidentifier
+    @id int
 )
 returns table
 with native_compilation
@@ -9,7 +9,7 @@ as return (
     from (
         select 1 as [Result] -- allow users to view themselves
         from [rls].[Sessions] as a
-        where (@id = a.[ObjectId])
+        where (@id = a.[UserId])
         union all
         select 1 as [Result] -- allow data readers to view all users
         where (Convert(bit, 1) = is_member('db_datareader'))
