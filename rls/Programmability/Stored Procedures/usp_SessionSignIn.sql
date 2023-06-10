@@ -6,10 +6,14 @@ begin;
     set nocount on;
     set xact_abort on;
 
+    declare @isReadOnly bit = convert(bit, 1);
+    declare @key nvarchar(128) = N'object_id';
+    declare @value sql_variant = convert(sql_variant, @objectId);
+
     execute [sys].[sp_set_session_context]
-        @key = N'object_id'
-      , @value = @objectId
-      , @read_only = 1;
+        @key = @key
+      , @value = @value
+      , @read_only = @isReadOnly;
 
     delete a
     from [rls].[Sessions] as a
@@ -17,4 +21,12 @@ begin;
 
     insert into [rls].[Sessions] ([ObjectId])
     select @objectId;
+
+    insert into [rls].[Users] ([ObjectId])
+    select @objectId
+    where not exists (
+              select 1
+              from [rls].[Users] as nea
+              where (@objectId = nea.[ObjectId])
+          );
 end;
