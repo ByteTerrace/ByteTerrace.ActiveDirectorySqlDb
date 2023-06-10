@@ -10,5 +10,7 @@
     <DatabaseEdition>Premium</DatabaseEdition>
     <DatabaseServiceObjective>P1</DatabaseServiceObjective>
     <DatabaseMaximumSize>2</DatabaseMaximumSize>
+    <ScriptDatabaseCollation>True</ScriptDatabaseCollation>
+    <ScriptDatabaseCompatibility>True</ScriptDatabaseCompatibility>
   </PropertyGroup>
 </Project>

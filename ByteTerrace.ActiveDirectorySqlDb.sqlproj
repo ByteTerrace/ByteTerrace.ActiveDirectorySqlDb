@@ -28,7 +28,7 @@
     <DbScopedConfigOptimizerHotfixes>On</DbScopedConfigOptimizerHotfixes>
     <QueryStoreDesiredState>ReadWrite</QueryStoreDesiredState>
     <QueryStoreStaleQueryThreshold>30</QueryStoreStaleQueryThreshold>
-    <DefaultCollation>Latin1_General_100_BIN2_UTF8</DefaultCollation>
+    <DefaultCollation>Latin1_General_100_BIN2</DefaultCollation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -81,11 +81,14 @@
     <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateSessionsAccess.sql" />
     <Build Include="rls\Security\EnforceSessionsAccess.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_SessionSignIn.sql" />
-    <Build Include="rls\Tables\Roles.sql" />
     <Build Include="rls\Tables\Users.sql" />
     <Build Include="rls\Programmability\Sequences\UserId.sql" />
     <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateUsersAccess.sql" />
     <Build Include="rls\Security\EnforceUsersAccess.sql" />
+    <Build Include="rls\Tables\RoleAssignments.sql" />
+    <Build Include="rls\Programmability\Stored Procedures\usp_AddRoleMember.sql" />
+    <Build Include="rls\Programmability\Stored Procedures\usp_RemoveRoleMember.sql" />
+    <Build Include="rls\Tables\Permissions.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">
