@@ -22,6 +22,12 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <IsEncryptionOn>True</IsEncryptionOn>
+    <CompatibilityMode>160</CompatibilityMode>
+    <EnableFullTextSearch>False</EnableFullTextSearch>
+    <DbScopedConfigOptimizerHotfixes>On</DbScopedConfigOptimizerHotfixes>
+    <QueryStoreDesiredState>ReadWrite</QueryStoreDesiredState>
+    <QueryStoreStaleQueryThreshold>30</QueryStoreStaleQueryThreshold>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
