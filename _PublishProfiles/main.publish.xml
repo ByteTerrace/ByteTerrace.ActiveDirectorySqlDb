@@ -12,6 +12,7 @@
     <DatabaseMaximumSize>2</DatabaseMaximumSize>
     <ScriptDatabaseCollation>True</ScriptDatabaseCollation>
     <ScriptDatabaseCompatibility>True</ScriptDatabaseCompatibility>
-    <CreateNewDatabase>True</CreateNewDatabase>
+    <CreateNewDatabase>False</CreateNewDatabase>
+    <DeployDatabaseInSingleUserMode>True</DeployDatabaseInSingleUserMode>
   </PropertyGroup>
 </Project>

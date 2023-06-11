@@ -19,24 +19,24 @@ as return (
                 from [rls].[Permissions] as eaa
                 where (@objectId = eaa.[MajorId])
                   and (0 = eaa.[MinorId])
-                  and ('SELECT' = eaa.[Name])
+                  and (N'SELECT' = eaa.[Name])
                   and ('G' = eaa.[State])
                   and (ea.[UserId] = eaa.[UserId])
             )
          union all
          select 1 -- allow users who are members of db_datareader access to ALL records
-         where (Convert(bit, 1) = is_member('db_datareader'))
+         where (Convert(bit, 1) = is_member(N'db_datareader'))
          union all
          select 1 -- allow users who are members of db_owner access to ALL records
-         where (Convert(bit, 1) = is_member('db_owner'))
+         where (Convert(bit, 1) = is_member(N'db_owner'))
       )
-      and (Convert(bit, 0) = is_member('db_denydatareader')) -- block users who are members of db_denydatareader access to ALL records
+      and (Convert(bit, 0) = is_member(N'db_denydatareader')) -- block users who are members of db_denydatareader access to ALL records
       and not exists ( -- block users with a SELECT deny access to ALL records
           select 1
           from [rls].[Permissions] as eaa
           where (@objectId = eaa.[MajorId])
             and (0 = eaa.[MinorId])
-            and ('SELECT' = eaa.[Name])
+            and (N'SELECT' = eaa.[Name])
             and ('D' = eaa.[State])
             and (ea.[UserId] = eaa.[UserId])
       )

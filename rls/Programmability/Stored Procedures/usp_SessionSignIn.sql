@@ -1,28 +1,26 @@
 ﻿create procedure [rls].[usp_SessionSignIn] (
-    @objectId uniqueidentifier
+    @objectId uniqueidentifier not null
 )
-as
-begin;
-    set nocount on;
-    set xact_abort on;
-
-    insert into [rls].[Users] (
-        [Id]
-      , [ObjectId]
-    )
-    select next value for [rls].[UserId]
-         , @objectId
+with native_compilation
+   , schemabinding
+as begin atomic with (
+    language = N'us_english'
+  , transaction isolation level = snapshot
+)
+    insert into [rls].[Users] ([ObjectId])
+    select @objectId
     where not exists (
-              select 1
-              from [rls].[Users] as nea
-              where (@objectId = nea.[ObjectId])
-          );
+          select 1
+          from [rls].[Users] as nea
+          where (@objectId = nea.[ObjectId])
+      );
 
-    delete a
-    from [rls].[Sessions] as a
-    where (@@spid = a.Spid);
+    delete
+    from [rls].[Sessions]
+    where (@@spid = [Spid]);
 
     insert into [rls].[Sessions] ([UserId])
     select a.[Id]
-    from [rls].[Users] as a where (@objectId = a.[ObjectId]);;
+    from [rls].[Users] as a
+    where (@objectId = a.[ObjectId]);
 end;
