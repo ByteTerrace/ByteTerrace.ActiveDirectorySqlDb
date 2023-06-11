@@ -95,9 +95,6 @@
     <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateSessionsAccess.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_SessionSignIn.sql" />
     <Build Include="rls\Tables\Users.sql" />
-    <Build Include="rls\Tables\RoleAssignments.sql" />
-    <Build Include="rls\Programmability\Stored Procedures\usp_AddRoleMember.sql" />
-    <Build Include="rls\Programmability\Stored Procedures\usp_RemoveRoleMember.sql" />
     <Build Include="rls\Tables\Permissions.sql" />
     <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateObjectAccess.sql" />
     <Build Include="dbo\Tables\Sandbox.sql" />
