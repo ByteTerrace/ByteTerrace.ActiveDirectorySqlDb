@@ -1,6 +1,6 @@
 ﻿create security policy [dbo].[EnforceSandboxAccess]
 add filter predicate [rls].[ValidateObjectAccess](
-    object_id(N'[dbo].[Sandbox]'),
+    0,
     [UserId]
 )
 on [dbo].[Sandbox]

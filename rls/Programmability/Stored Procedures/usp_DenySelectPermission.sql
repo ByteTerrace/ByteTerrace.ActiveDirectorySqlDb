@@ -1,4 +1,4 @@
-﻿create procedure [rls].[usp_GrantSelectPermission] (
+﻿create procedure [rls].[usp_DenySelectPermission] (
     @majorId int not null
   , @userId int not null
 )
@@ -11,9 +11,9 @@ as begin atomic with (
     execute [rls].[usp_AddPermission]
         @majorId
       , N'SELECT'
-      , 'G'
+      , 'D'
       , @userId;
 end;
 go
 
-deny execute on [rls].[usp_GrantSelectPermission] to public;
+deny execute on [rls].[usp_DenySelectPermission] to public;

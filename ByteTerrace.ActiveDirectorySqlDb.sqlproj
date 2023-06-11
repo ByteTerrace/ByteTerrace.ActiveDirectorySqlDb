@@ -105,6 +105,7 @@
     <Build Include="dbo\Programmability\Functions\Table-valued Functions\GetSandbox.sql" />
     <Build Include="dbo\Programmability\Stored Procedures\usp_GetSandbox.sql" />
     <Build Include="dbo\Programmability\Types\User-Defined Table Types\IInt.sql" />
+    <Build Include="rls\Programmability\Stored Procedures\usp_DenySelectPermission.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">
