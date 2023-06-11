@@ -5,6 +5,7 @@
 as
 begin;
     select a.[DisplayName]
+         , a.[PrimaryEmailAddressId]
          , a.[UserId]
     from [dbo].[GetUserProfiles] (
         @displayName

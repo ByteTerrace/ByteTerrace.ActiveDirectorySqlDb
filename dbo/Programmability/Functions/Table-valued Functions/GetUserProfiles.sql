@@ -6,6 +6,7 @@ returns table
 with schemabinding
 as return (
     select a.[DisplayName]
+         , a.[PrimaryEmailAddressId]
          , a.[UserId]
     from [dbo].[UserProfiles] as a
     where (IsNull(@displayName, a.[DisplayName]) = a.[DisplayName])

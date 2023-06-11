@@ -111,6 +111,9 @@
     <Build Include="dbo\Tables\UserEmailAddresses.sql" />
     <Build Include="dbo\Programmability\Functions\Table-valued Functions\GetUserEmailAddresses.sql" />
     <Build Include="dbo\Programmability\Stored Procedures\usp_GetUserEmailAddresses.sql" />
+    <Build Include="dbo\Tables\UserImages.sql" />
+    <Build Include="dbo\Programmability\Types\User-Defined Data Types\ImageData.sql" />
+    <Build Include="dbo\Programmability\Types\User-Defined Data Types\Identifier.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">

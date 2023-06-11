@@ -25,12 +25,12 @@ as return (
             )
          union all
          select 1 -- allow users who are members of db_datareader to access ALL records
-         where (Convert(bit, 1) = is_member(N'db_datareader'))
+         where (convert(bit, 1) = is_member(N'db_datareader'))
          union all
          select 1 -- allow users who are members of db_owner to access ALL records
-         where (Convert(bit, 1) = is_member(N'db_owner'))
+         where (convert(bit, 1) = is_member(N'db_owner'))
       )
-      and (Convert(bit, 0) = is_member(N'db_denydatareader')) -- block users who are members of db_denydatareader from accessing ALL records
+      and (convert(bit, 0) = is_member(N'db_denydatareader')) -- block users who are members of db_denydatareader from accessing ALL records
       and not exists ( -- block users with a SELECT deny from accessing ALL records
           select 1
           from [rls].[Permissions] as eaa
