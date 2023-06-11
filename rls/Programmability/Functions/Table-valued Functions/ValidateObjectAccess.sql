@@ -13,7 +13,7 @@ as return (
           select 1 -- allow users access to their own records
           where (@userId = ea.[UserId])
           union all
-          select 1 -- allow users with a SELECT grant access to ALL records
+          select 1 -- allow users with a SELECT grant to access ALL records
           where exists (
                 select 1
                 from [rls].[Permissions] as eaa
@@ -24,14 +24,14 @@ as return (
                   and (ea.[UserId] = eaa.[UserId])
             )
          union all
-         select 1 -- allow users who are members of db_datareader access to ALL records
+         select 1 -- allow users who are members of db_datareader to access ALL records
          where (Convert(bit, 1) = is_member(N'db_datareader'))
          union all
-         select 1 -- allow users who are members of db_owner access to ALL records
+         select 1 -- allow users who are members of db_owner to access ALL records
          where (Convert(bit, 1) = is_member(N'db_owner'))
       )
-      and (Convert(bit, 0) = is_member(N'db_denydatareader')) -- block users who are members of db_denydatareader access to ALL records
-      and not exists ( -- block users with a SELECT deny access to ALL records
+      and (Convert(bit, 0) = is_member(N'db_denydatareader')) -- block users who are members of db_denydatareader from accessing ALL records
+      and not exists ( -- block users with a SELECT deny from accessing ALL records
           select 1
           from [rls].[Permissions] as eaa
           where (@objectId = eaa.[MajorId])

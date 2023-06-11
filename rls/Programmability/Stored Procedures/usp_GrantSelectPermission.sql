@@ -1,23 +1,21 @@
 ﻿create procedure [rls].[usp_GrantSelectPermission] (
-    @majorId int
-  , @minorId int
-  , @userId int
+    @majorId int not null
+  , @userId int not null
+  , @minorId int null = null
 )
-as
-begin;
-    set nocount on;
-    set xact_abort on;
-
-    insert into [rls].[Permissions] (
-        [MajorId]
-      , [MinorId]
-      , [Name]
-      , [State]
-      , [UserId]
-    )
-    select @majorId
-         , @minorId
-         , N'SELECT'
-         , 'G'
-         , @userId;
+with native_compilation
+   , schemabinding
+as begin atomic with (
+    language = N'us_english'
+  , transaction isolation level = snapshot
+)
+    execute [rls].[usp_AddPermission]
+        @majorId
+      , N'SELECT'
+      , 'G'
+      , @userId
+      , @minorId;
 end;
+go
+
+deny execute on [rls].[usp_GrantSelectPermission] to public;

@@ -8,3 +8,6 @@
     durability = schema_only
   , memory_optimized = on
 );
+go
+
+deny select on [rls].[Sessions] to public;

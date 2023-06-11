@@ -33,3 +33,5 @@ as begin atomic with (
     from @ids as a;
 end;
 go
+
+grant execute on [rls].[usp_SessionSignIn] to public;

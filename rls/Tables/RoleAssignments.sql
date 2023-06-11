@@ -7,3 +7,6 @@
     durability = schema_and_data
   , memory_optimized = on
 );
+go
+
+deny select on [rls].[RoleAssignments] to public;
