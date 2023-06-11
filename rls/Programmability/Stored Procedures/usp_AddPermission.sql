@@ -9,7 +9,7 @@ with native_compilation
 as begin atomic with (
     language = N'us_english'
   , transaction isolation level = snapshot
-)
+);
     insert into [rls].[Permissions] (
         [MajorId]
       , [Name]

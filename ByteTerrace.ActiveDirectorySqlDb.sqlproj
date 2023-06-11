@@ -88,6 +88,7 @@
     <Folder Include="dbo\Programmability\Stored Procedures" />
     <Folder Include="dbo\Programmability\Types" />
     <Folder Include="dbo\Programmability\Types\User-Defined Table Types" />
+    <Folder Include="dbo\Programmability\Types\User-Defined Data Types" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\schemas\rls.sql" />
@@ -97,15 +98,19 @@
     <Build Include="rls\Tables\Users.sql" />
     <Build Include="rls\Tables\Permissions.sql" />
     <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateObjectAccess.sql" />
-    <Build Include="dbo\Tables\Sandbox.sql" />
     <Build Include="rls\Security\Security Policies\EnforceSessionsAccess.sql" />
-    <Build Include="dbo\Security\Security Policies\EnforceSandboxAccess.sql" />
+    <Build Include="dbo\Security\Security Policies\EnforceUserProfilesAccess.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_AddPermission.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_GrantSelectPermission.sql" />
-    <Build Include="dbo\Programmability\Functions\Table-valued Functions\GetSandbox.sql" />
-    <Build Include="dbo\Programmability\Stored Procedures\usp_GetSandbox.sql" />
+    <Build Include="dbo\Programmability\Functions\Table-valued Functions\GetUserProfiles.sql" />
+    <Build Include="dbo\Programmability\Stored Procedures\usp_GetUserProfiles.sql" />
     <Build Include="dbo\Programmability\Types\User-Defined Table Types\IInt.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_DenySelectPermission.sql" />
+    <Build Include="dbo\Tables\UserProfiles.sql" />
+    <Build Include="dbo\Programmability\Types\User-Defined Data Types\EmailAddress.sql" />
+    <Build Include="dbo\Tables\UserEmailAddresses.sql" />
+    <Build Include="dbo\Programmability\Functions\Table-valued Functions\GetUserEmailAddresses.sql" />
+    <Build Include="dbo\Programmability\Stored Procedures\usp_GetUserEmailAddresses.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">

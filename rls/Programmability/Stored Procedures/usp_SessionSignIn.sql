@@ -1,12 +1,7 @@
 ﻿create procedure [rls].[usp_SessionSignIn] (
-    @objectId uniqueidentifier not null
+    @objectId uniqueidentifier
 )
-with native_compilation
-   , schemabinding
-as begin atomic with (
-    language = N'us_english'
-  , transaction isolation level = snapshot
-)
+as begin;
     declare @ids [dbo].[IInt];
 
     insert into @ids ([Value])

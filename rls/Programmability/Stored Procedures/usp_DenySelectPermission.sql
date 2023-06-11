@@ -7,7 +7,7 @@ with native_compilation
 as begin atomic with (
     language = N'us_english'
   , transaction isolation level = snapshot
-)
+);
     execute [rls].[usp_AddPermission]
         @majorId
       , N'SELECT'
