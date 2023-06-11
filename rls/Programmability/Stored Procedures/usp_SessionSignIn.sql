@@ -7,7 +7,16 @@ as begin atomic with (
     language = N'us_english'
   , transaction isolation level = snapshot
 )
+    declare @ids [dbo].[IInt];
+
+    insert into @ids ([Value])
+    select a.[Id]
+    from [rls].[Users] as a
+    where (@objectId = a.[ObjectId]);
+
     insert into [rls].[Users] ([ObjectId])
+    output [inserted].[Id]
+    into @ids
     select @objectId
     where not exists (
           select 1
@@ -20,7 +29,7 @@ as begin atomic with (
     where (@@spid = [Spid]);
 
     insert into [rls].[Sessions] ([UserId])
-    select a.[Id]
-    from [rls].[Users] as a
-    where (@objectId = a.[ObjectId]);
+    select a.[Value]
+    from @ids as a;
 end;
+go

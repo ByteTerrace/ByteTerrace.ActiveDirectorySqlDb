@@ -82,6 +82,12 @@
     <Folder Include="rls\Security\Security Policies" />
     <Folder Include="dbo\Security" />
     <Folder Include="dbo\Security\Security Policies" />
+    <Folder Include="dbo\Programmability" />
+    <Folder Include="dbo\Programmability\Functions" />
+    <Folder Include="dbo\Programmability\Functions\Table-valued Functions" />
+    <Folder Include="dbo\Programmability\Stored Procedures" />
+    <Folder Include="dbo\Programmability\Types" />
+    <Folder Include="dbo\Programmability\Types\User-Defined Table Types" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\schemas\rls.sql" />
@@ -89,7 +95,6 @@
     <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateSessionsAccess.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_SessionSignIn.sql" />
     <Build Include="rls\Tables\Users.sql" />
-    <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateUsersAccess.sql" />
     <Build Include="rls\Tables\RoleAssignments.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_AddRoleMember.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_RemoveRoleMember.sql" />
@@ -97,10 +102,12 @@
     <Build Include="rls\Programmability\Functions\Table-valued Functions\ValidateObjectAccess.sql" />
     <Build Include="dbo\Tables\Sandbox.sql" />
     <Build Include="rls\Security\Security Policies\EnforceSessionsAccess.sql" />
-    <Build Include="rls\Security\Security Policies\EnforceUsersAccess.sql" />
     <Build Include="dbo\Security\Security Policies\EnforceSandboxAccess.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_AddPermission.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_GrantSelectPermission.sql" />
+    <Build Include="dbo\Programmability\Functions\Table-valued Functions\GetSandbox.sql" />
+    <Build Include="dbo\Programmability\Stored Procedures\usp_GetSandbox.sql" />
+    <Build Include="dbo\Programmability\Types\User-Defined Table Types\IInt.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">
