@@ -8,6 +8,10 @@
 );
 go
 
+create unique nonclustered index [dbo.UserProfiles_UqPrimaryEmailAddress]
+on [dbo].[UserProfiles] ([PrimaryEmailAddressIndex] asc)
+where ([PrimaryEmailAddressIndex] is not null);
+go
 deny select on [dbo].[UserProfiles] to public;
 go
 grant view definition on [dbo].[UserProfiles] to public;
