@@ -1,6 +1,7 @@
 ﻿create procedure [rls].[usp_DenySelectPermission] (
     @majorId int not null
   , @userId int not null
+  , @minorId int null = null
 )
 with native_compilation
    , schemabinding
@@ -12,7 +13,8 @@ as begin atomic with (
         @majorId
       , N'SELECT'
       , 'D'
-      , @userId;
+      , @userId
+      , @minorId;
 end;
 go
 

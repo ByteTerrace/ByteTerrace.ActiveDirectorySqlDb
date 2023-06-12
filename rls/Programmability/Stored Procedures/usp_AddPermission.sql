@@ -3,6 +3,7 @@
   , @name sysname not null
   , @state char(1) not null
   , @userId int not null
+  , @minorId int null = null
 )
 with native_compilation
    , schemabinding
@@ -12,11 +13,13 @@ as begin atomic with (
 );
     insert into [rls].[Permissions] (
         [MajorId]
+      , [MinorId]
       , [Name]
       , [State]
       , [UserId]
     )
     select @majorId
+         , IsNull(@minorId, 0)
          , @name
          , @state
          , @userId;

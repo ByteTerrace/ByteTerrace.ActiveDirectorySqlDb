@@ -87,7 +87,6 @@
     <Folder Include="dbo\Programmability\Functions\Table-valued Functions" />
     <Folder Include="dbo\Programmability\Stored Procedures" />
     <Folder Include="dbo\Programmability\Types" />
-    <Folder Include="dbo\Programmability\Types\User-Defined Table Types" />
     <Folder Include="dbo\Programmability\Types\User-Defined Data Types" />
     <Folder Include="graph" />
     <Folder Include="graph\Tables" />
@@ -97,6 +96,8 @@
     <Folder Include="graph\Programmability\Types\User-Defined Table Types" />
     <Folder Include="graph\Programmability\Functions" />
     <Folder Include="graph\Programmability\Functions\Table-valued Functions" />
+    <Folder Include="graph\Programmability\Types\User-Defined Data Types" />
+    <Folder Include="rls\Programmability\Types" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\schemas\rls.sql" />
@@ -112,7 +113,6 @@
     <Build Include="rls\Programmability\Stored Procedures\usp_GrantSelectPermission.sql" />
     <Build Include="dbo\Programmability\Functions\Table-valued Functions\GetUserProfiles.sql" />
     <Build Include="dbo\Programmability\Stored Procedures\usp_GetUserProfiles.sql" />
-    <Build Include="dbo\Programmability\Types\User-Defined Table Types\IInt.sql" />
     <Build Include="rls\Programmability\Stored Procedures\usp_DenySelectPermission.sql" />
     <Build Include="dbo\Tables\UserProfiles.sql" />
     <Build Include="dbo\Programmability\Types\User-Defined Data Types\EmailAddress.sql" />
@@ -131,6 +131,7 @@
     <Build Include="graph\Programmability\Types\User-Defined Table Types\IPoint.sql" />
     <Build Include="graph\Programmability\Functions\Table-valued Functions\GetPoints.sql" />
     <Build Include="graph\Programmability\Functions\Table-valued Functions\GetLines.sql" />
+    <Build Include="graph\Programmability\Types\User-Defined Data Types\Identity.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">

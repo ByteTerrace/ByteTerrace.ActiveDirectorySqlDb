@@ -1,5 +1,5 @@
 ﻿create table [graph].[Points] (
-    [Id] bigint not null identity (1, 1)
+    [Id] [graph].[Identity] identity (1, 1)
   , [Hash] binary(32) not null
   , [Value] nvarchar(max) not null
   , constraint [graph.Points_CkHash] check ([Hash] = hashbytes(N'SHA2_256', [Value]))

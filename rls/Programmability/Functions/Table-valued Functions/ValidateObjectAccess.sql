@@ -24,6 +24,17 @@ as return (
                   and (ea.[UserId] = eaa.[UserId])
             )
          union all
+         select 1 -- allow users with a SELECT grant to access specific records
+         where exists (
+               select 1
+               from [rls].[Permissions] as eaa
+               where (@objectId = eaa.[MajorId])
+                 and (@userId = eaa.[MinorId])
+                 and (N'SELECT' = eaa.[Name])
+                 and ('G' = eaa.[State])
+                 and (ea.[UserId] = eaa.[UserId])
+           )
+         union all
          select 1 -- allow users who are members of db_datareader to access ALL records
          where (convert(bit, 1) = is_member(N'db_datareader'))
          union all
@@ -36,6 +47,15 @@ as return (
           from [rls].[Permissions] as eaa
           where (@objectId = eaa.[MajorId])
             and (0 = eaa.[MinorId])
+            and (N'SELECT' = eaa.[Name])
+            and ('D' = eaa.[State])
+            and (ea.[UserId] = eaa.[UserId])
+      )
+      and not exists ( -- block users with a SELECT deny from accessing specific records
+          select 1
+          from [rls].[Permissions] as eaa
+          where (@objectId = eaa.[MajorId])
+            and (@userId = eaa.[MinorId])
             and (N'SELECT' = eaa.[Name])
             and ('D' = eaa.[State])
             and (ea.[UserId] = eaa.[UserId])

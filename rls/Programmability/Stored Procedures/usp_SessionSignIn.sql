@@ -2,7 +2,7 @@
     @objectId uniqueidentifier
 )
 as begin;
-    declare @ids [dbo].[IInt];
+    declare @ids table ([Value] int not null primary key clustered ([Value] asc));
 
     insert into @ids ([Value])
     select a.[Id]

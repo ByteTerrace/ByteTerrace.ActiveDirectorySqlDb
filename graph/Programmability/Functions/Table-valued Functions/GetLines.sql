@@ -12,7 +12,7 @@ as return (
          , a.[Y]
          , a.[Z]
     from [graph].[Lines] as a
-    where (isnull(@w, a.[X]) = a.[X])
+    where (isnull(@w, a.[W]) = a.[W])
       and (isnull(@x, a.[X]) = a.[X])
       and (isnull(@y, a.[Y]) = a.[Y])
       and (isnull(@z, a.[Z]) = a.[Z])
