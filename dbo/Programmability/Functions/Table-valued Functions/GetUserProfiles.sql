@@ -9,6 +9,6 @@ as return (
          , a.[PrimaryEmailAddressIndex]
          , a.[UserId]
     from [dbo].[UserProfiles] as a
-    where (IsNull(@displayName, a.[DisplayName]) = a.[DisplayName])
-      and (IsNull(@userId, a.[UserId]) = a.[UserId])
+    where (isnull(@displayName, a.[DisplayName]) = a.[DisplayName])
+      and (isnull(@userId, a.[UserId]) = a.[UserId])
 );

@@ -89,6 +89,14 @@
     <Folder Include="dbo\Programmability\Types" />
     <Folder Include="dbo\Programmability\Types\User-Defined Table Types" />
     <Folder Include="dbo\Programmability\Types\User-Defined Data Types" />
+    <Folder Include="graph" />
+    <Folder Include="graph\Tables" />
+    <Folder Include="graph\Programmability" />
+    <Folder Include="graph\Programmability\Stored Procedures" />
+    <Folder Include="graph\Programmability\Types" />
+    <Folder Include="graph\Programmability\Types\User-Defined Table Types" />
+    <Folder Include="graph\Programmability\Functions" />
+    <Folder Include="graph\Programmability\Functions\Table-valued Functions" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Security\schemas\rls.sql" />
@@ -114,6 +122,15 @@
     <Build Include="dbo\Tables\UserImages.sql" />
     <Build Include="dbo\Programmability\Types\User-Defined Data Types\ImageData.sql" />
     <Build Include="dbo\Programmability\Types\User-Defined Data Types\Identifier.sql" />
+    <Build Include="Security\schemas\graph.sql" />
+    <Build Include="graph\Tables\Lines.sql" />
+    <Build Include="graph\Tables\Points.sql" />
+    <Build Include="graph\Programmability\Stored Procedures\usp_InsertLines.sql" />
+    <Build Include="graph\Programmability\Stored Procedures\usp_InsertPoints.sql" />
+    <Build Include="graph\Programmability\Types\User-Defined Table Types\ILine.sql" />
+    <Build Include="graph\Programmability\Types\User-Defined Table Types\IPoint.sql" />
+    <Build Include="graph\Programmability\Functions\Table-valued Functions\GetPoints.sql" />
+    <Build Include="graph\Programmability\Functions\Table-valued Functions\GetLines.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">

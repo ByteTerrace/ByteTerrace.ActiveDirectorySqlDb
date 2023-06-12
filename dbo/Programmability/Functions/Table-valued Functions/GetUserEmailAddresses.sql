@@ -8,8 +8,8 @@ as return (
     select a.[UserId]
          , a.[Value]
     from [dbo].[UserEmailAddresses] as a
-    where (IsNull(@userId, a.[UserId]) = a.[UserId])
-      and (IsNull(@value, a.[Value]) = a.[Value])
+    where (isnull(@userId, a.[UserId]) = a.[UserId])
+      and (isnull(@value, a.[Value]) = a.[Value])
       and exists (
           select 1
           from [dbo].[UserProfiles] as ea
