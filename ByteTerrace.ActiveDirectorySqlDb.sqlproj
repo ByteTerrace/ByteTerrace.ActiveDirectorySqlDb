@@ -7,15 +7,15 @@
     <CompatibilityMode>160</CompatibilityMode>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <DbScopedConfigOptimizerHotfixes>On</DbScopedConfigOptimizerHotfixes>
-    <DefaultCollation>Latin1_General_100_BIN2</DefaultCollation>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
     <EnableFullTextSearch>False</EnableFullTextSearch>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <IsEncryptionOn>True</IsEncryptionOn>
-    <MemoryOptimizedElevateToSnapshot>True</MemoryOptimizedElevateToSnapshot>
-    <ModelCollation>1033,CS</ModelCollation>
+    <MemoryOptimizedElevateToSnapshot>False</MemoryOptimizedElevateToSnapshot>
+    <ModelCollation>1033,CI</ModelCollation>
     <Name>ByteTerrace.ActiveDirectorySqlDb</Name>
     <OutputType>Database</OutputType>
     <PageVerify>CHECKSUM</PageVerify>
@@ -132,6 +132,8 @@
     <Build Include="graph\Programmability\Functions\Table-valued Functions\GetPoints.sql" />
     <Build Include="graph\Programmability\Functions\Table-valued Functions\GetLines.sql" />
     <Build Include="graph\Programmability\Types\User-Defined Data Types\Identity.sql" />
+    <Build Include="dbo\Programmability\Stored Procedures\usp_GetAzureStorageBlob.sql" />
+    <Build Include="dbo\Programmability\Stored Procedures\usp_PutAzureStorageBlob.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">

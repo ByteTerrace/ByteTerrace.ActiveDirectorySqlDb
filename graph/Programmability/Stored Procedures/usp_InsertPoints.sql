@@ -3,26 +3,22 @@
 )
 as
 begin;
-    declare @lines [graph].[ILine];
+    set nocount on;
+    set xact_abort on;
 
     insert into [graph].[Points] (
         [Hash]
       , [Value]
     )
     output [inserted].[Id]
-         , [inserted].[Id]
-         , [inserted].[Id]
-         , [inserted].[Id]
-    into @lines
-    select b.[Hash]
+         , [inserted].[Hash]
+         , [inserted].[Value]
+    select a.[Hash]
          , a.[Value]
     from @points as a
-    cross apply (values(isnull(a.[Hash], convert(binary(32), hashbytes(N'SHA2_256', a.[Value]))))) as b ([Hash])
     where not exists (
           select 1
           from [graph].[Points] as nea
-          where (b.[Hash] = nea.[Hash])
+          where (a.[Hash] = nea.[Hash])
       );
-
-    execute [graph].[usp_InsertLines] @lines;
 end;

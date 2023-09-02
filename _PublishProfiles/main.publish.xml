@@ -9,10 +9,11 @@
     <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
     <DatabaseEdition>Premium</DatabaseEdition>
     <DatabaseServiceObjective>P1</DatabaseServiceObjective>
-    <DatabaseMaximumSize>2</DatabaseMaximumSize>
+    <DatabaseMaximumSize>100</DatabaseMaximumSize>
     <ScriptDatabaseCollation>True</ScriptDatabaseCollation>
     <ScriptDatabaseCompatibility>True</ScriptDatabaseCompatibility>
     <CreateNewDatabase>False</CreateNewDatabase>
     <DeployDatabaseInSingleUserMode>True</DeployDatabaseInSingleUserMode>
+    <ScriptDatabaseOptions>False</ScriptDatabaseOptions>
   </PropertyGroup>
 </Project>
