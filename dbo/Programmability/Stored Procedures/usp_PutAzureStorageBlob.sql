@@ -23,5 +23,3 @@ begin;
       , @url = @url;
 end;
 go
-
-grant execute on [dbo].[usp_PutAzureStorageBlob] to public;

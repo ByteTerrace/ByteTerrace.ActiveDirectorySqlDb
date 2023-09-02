@@ -1,4 +1,4 @@
-﻿create procedure [dbo].[usp_GetAzureStorageBlob] (
+﻿create procedure [dbo].[usp_DeleteAzureStorageBlob] (
     @response nvarchar(max) output
   , @url nvarchar(4000)
   , @credential sysname = default
@@ -13,7 +13,7 @@ begin;
     execute [sys].[sp_invoke_external_rest_endpoint]
         @credential = @credential
       , @headers = @headers
-      , @method = N'GET'
+      , @method = N'DELETE'
       , @response = @response output
       , @url = @url;
 end;

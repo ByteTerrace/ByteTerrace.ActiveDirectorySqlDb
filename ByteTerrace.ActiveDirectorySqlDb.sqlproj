@@ -134,6 +134,7 @@
     <Build Include="graph\Programmability\Types\User-Defined Data Types\Identity.sql" />
     <Build Include="dbo\Programmability\Stored Procedures\usp_GetAzureStorageBlob.sql" />
     <Build Include="dbo\Programmability\Stored Procedures\usp_PutAzureStorageBlob.sql" />
+    <Build Include="dbo\Programmability\Stored Procedures\usp_DeleteAzureStorageBlob.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">
